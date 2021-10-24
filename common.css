@@ -1,0 +1,17 @@
+.timer,
+.field {
+  display: flex;
+  justify-content: center;
+}
+
+.field {
+  flex-direction: column;
+}
+
+.field:not(:last-child) {
+  margin-right: 30px;
+}
+
+.field > .value {
+  margin: 0 auto;
+}
