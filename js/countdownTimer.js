@@ -16,7 +16,10 @@ export default class Timer {
   startTimer() {
     let now = new Date();
     let date = this.refs.date;
-    if (date - now <= 0) return this.convertDate(0);
+    if (date - now <= 0) {
+      clearTimeout(this.timerID);
+      return this.convertDate(0);
+    }
 
     const time = this.diffSubtract(now, date);
     let res = new Date(time);
@@ -40,6 +43,7 @@ export default class Timer {
   }
 
   render(days, hours, min, secs) {
+    console.log(this.timerID);
     this.refs.timer.querySelector('span[data-value="days"]').textContent = days;
     this.refs.timer.querySelector('span[data-value="hours"]').textContent =
       hours;
